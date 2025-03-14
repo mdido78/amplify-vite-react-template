@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Schema } from "../amplify/data/resource";
 import { useAuthenticator } from '@aws-amplify/ui-react';
-import { generateClient } from "aws-amplify/data";
-
-const client = generateClient<Schema>();
 
 function App() {
   const { signOut } = useAuthenticator();
@@ -21,9 +17,9 @@ function App() {
     const requestOptions = {
       method: "GET",
       headers: myHeaders,
-      redirect: "follow",
-      mode: "cors",
-      credentials: "include" 
+      redirect: "follow" as RequestRedirect,
+      mode: "cors" as RequestMode,
+      credentials: "include" as RequestCredentials
     };
     
     fetch("https://d7evg95uyk.execute-api.us-east-1.amazonaws.com/Prod/token", requestOptions)
@@ -34,7 +30,7 @@ function App() {
         return response.text();
       })
       .then((result) => setXeroToken(result))
-      .catch((error) => console.error(error));
+      .catch((error) => setXeroToken(error));
   }
 
   return (
