@@ -15,6 +15,17 @@ main {
   align-items: stretch;
 }
 
+textarea {
+  width: 700px;
+  height: 200px;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: darkblue;
+  background-color: #646cffAA;
+  border-radius: 20px;
+  scrollbar-width: none;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -26,6 +37,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
   color: white;
+  margin-bottom: 10px;
 }
 button:hover {
   border-color: #646cff;
